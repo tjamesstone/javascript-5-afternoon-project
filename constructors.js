@@ -70,8 +70,13 @@ this.make = make
 this.model = model
 this.year = year
 this.move = move
-
+this.moveCar = function(){
+  let move = 0
+  return move + 10
 }
+}
+
+
 
 ////////// PROBLEM 4 //////////
 
@@ -85,9 +90,13 @@ this.move = move
 */
 
 function Movie(name, genre, rating) {
-  this.name = name;
-  this.genre = genre;
-  this.rating = rating;
+  this.name = name
+  this.genre = genre
+  this.rating = rating
+  Movie.prototype.changeRating = function(newRating){
+    let avgRating = (rating + newRating)/2
+    return avgRating = this.rating
+  }
 }
 
 // Code here
@@ -104,7 +113,16 @@ function User (name, age, email, savedPosts){
 this.name = name
 this.age = age
 this.email = email
-this.savedPosts = {id: 0, title: '', rating: ''}
+this.savedPosts = []
+
+User.prototype.addSavedPost = function(id, title, rating){
+  let post = {
+    id: id,
+    title: title,
+    rating: rating
+  }
+   this.savedPosts.push(post)
+}
 }
 
 ////////// PROBLEM 6 //////////
@@ -113,6 +131,11 @@ this.savedPosts = {id: 0, title: '', rating: ''}
 // Write a prototype method for the User constructor function named removeSavedPost that will take in one number parameter representing the post id. Use this id to find and remove the matching object in the savedPosts array.
 
 // Code here
+
+User.prototype.removeSavedPost = function(id){
+  index = savedPosts.findIndex(el => el.id === id)
+  this.savedPosts.splice(index, 1)
+}
 
 ////////// PROBLEM 7 //////////
 

@@ -69,10 +69,10 @@ let callJake = callFriend('Jake', '435-555-9248')
 
 //Code Here
 function makeCounter(){
-  let count = 0
+  let number = 0
   return function(value){
-    count += value;
-    return count
+    number += value;
+    return number
   }
 }
 
@@ -99,15 +99,15 @@ function makeCounter(){
 
 function counterFactory(value) {
   // Code here.
-
+  count = value
   return {
-    inc: function(count){
-      value += count
-      return count
+    inc: function(value){
+      value++
+      return value
     },
-    dec: function(count){
-      value -= count
-      return  count
+    dec: function(value){
+      value++
+      return value
     }
 
   };
@@ -221,7 +221,7 @@ function secretNumber() {
 function timeOutCounter() {
   for (var i = 0; i <= 5; i++) {
     setTimeout(function() {
-      console.log(i);
+      console.log(`${i} seconds after call`);
     }, i * 1000);
   }
 }
