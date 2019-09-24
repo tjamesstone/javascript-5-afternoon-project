@@ -83,6 +83,7 @@ function makeCounter(){
   count(); // 2
   count(); // 3
   count(); // 4
+  
 
 
 
@@ -97,17 +98,17 @@ function makeCounter(){
   http://stackoverflow.com/questions/17776940/javascript-module-pattern-with-example?answertab=votes#tab-top
 */
 
-function counterFactory(value) {
+function counterFactory(val) {
   // Code here.
-  count = value
+  let startVal = val
   return {
     inc: function(value){
-      value++
-      return value
+      startVal += value
+      return startVal
     },
     dec: function(value){
-      value++
-      return value
+      startVal += value
+      return startVal
     }
 
   };
