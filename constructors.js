@@ -113,17 +113,18 @@ function User (name, age, email, savedPosts){
 this.name = name
 this.age = age
 this.email = email
-this.savedPosts = []
+this.savedPosts = savedPosts
 
 User.prototype.addSavedPost = function(id, title, rating){
-  let post = {
-    id: id,
-    title: title,
-    rating: rating
+  this.savedPosts = [...this.savedPosts, {
+    id,
+    title,
+    rating
+  }]
   }
-   this.savedPosts.push(post)
+  
 }
-}
+
 
 ////////// PROBLEM 6 //////////
 
@@ -133,7 +134,7 @@ User.prototype.addSavedPost = function(id, title, rating){
 // Code here
 
 User.prototype.removeSavedPost = function(id){
-  index = savedPosts.findIndex(el => el.id === id)
+  index = this.savedPosts.findIndex(el => el.id === id)
   this.savedPosts.splice(index, 1)
 }
 
@@ -143,3 +144,9 @@ User.prototype.removeSavedPost = function(id){
 // Write a prototype method for the User constructor function named changePostRating that will take in two number parameters. The first will be an id (a number) and the second will be the new rating (a number). Use the id to find the matching object in the savedPosts array. Once you find the matching object, update it's rating score with the new rating parameter.
 
 // Code here
+
+User.prototype.changePostRating = function(id, newRating){
+let index = this.savedPosts.findIndex(item => item.id === id)    
+this.savedPosts[index].rating = newRating
+
+}

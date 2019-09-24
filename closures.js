@@ -218,11 +218,17 @@ function secretNumber() {
   Fix the code below to log the desired output.
 */
 
-function timeOutCounter() {
+function  timeOutCounter() {
   for (var i = 0; i <= 5; i++) {
-    setTimeout(function() {
-      console.log(`${i} seconds after call`);
-    }, i * 1000);
+    function counter(index){
+     setTimeout(function() {
+      console.log(index);
+    }, i * 1000)}
+    counter(i)
   }
+
 }
 timeOutCounter();
+
+
+
