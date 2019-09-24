@@ -70,8 +70,8 @@ let callJake = callFriend('Jake', '435-555-9248')
 //Code Here
 function makeCounter(){
   let number = 0
-  return function(value){
-    number += value;
+  return function(){
+    number ++
     return number
   }
 }
@@ -102,16 +102,15 @@ function counterFactory(val) {
   // Code here.
   let startVal = val
   return {
-    inc: function(value){
-      startVal += value
+    inc: function(){
+      startVal ++
       return startVal
     },
-    dec: function(value){
-      startVal += value
+    dec: function(){
+      startVal --
       return startVal
     }
-
-  };
+  }
 }
 
 counter = counterFactory(10);
